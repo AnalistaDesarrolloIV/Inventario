@@ -129,7 +129,7 @@
                                                         </td>
                                                         <td class="table-danger">
                                                             @if ($val['ComentariosConteo1'] !== null)
-                                                                {{round($val['ComentariosConteo1'])}}
+                                                                {{$val['ComentariosConteo1']}}
                                                             @else
                                                             Sin comentarios
                                                             @endif
@@ -174,7 +174,7 @@
                                                         </td>
                                                         <td class="table-warning">
                                                             @if ($val['ComentariosConteo2'] !== null)
-                                                                {{round($val['ComentariosConteo2'])}}
+                                                                {{$val['ComentariosConteo2']}}
                                                             @else
                                                             Sin comentarios
                                                             @endif
@@ -220,7 +220,7 @@
                                                             </td>
                                                             <td class="table-info">
                                                                 @if ($val['ComentariosConteo3'] !== null)
-                                                                    {{round($val['ComentariosConteo3'])}}
+                                                                    {{$val['ComentariosConteo3']}}
                                                                 @else
                                                                     Sin comentarios
                                                                 @endif
