@@ -87,19 +87,22 @@
                                 <div class="col-sm-12 scroll">
                                     <ul class="nav nav-pills nav-fill flex-column float-md-left pr-3" id="myTab" role="tablist">
                                         <li class="nav-item">
-                                        <a class="nav-link active py-2" id="home-tab" data-toggle="tab" href="#panelZonas" role="tab" aria-controls="home" aria-selected="true">Zona</a>
+                                            <a class="nav-link active py-2" id="home-tab" data-toggle="tab" href="#panelZonas" role="tab" aria-controls="zonas-tab" aria-selected="true">Zona</a>
                                         </li>
                                         <li class="nav-item py-2">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#panelZonas_pasillos" role="tab" aria-controls="profile" aria-selected="false">Zona y pasillo</a>
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#panelZonas_pasillos" role="tab" aria-controls="zonas-pasillos-tab" aria-selected="false">Zona y pasillo</a>
                                         </li>
                                         <li class="nav-item py-2">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#panelProductos" role="tab" aria-controls="contact" aria-selected="false">Producto</a>
+                                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#panelProductos" role="tab" aria-controls="productos-tab" aria-selected="false">Producto</a>
                                         </li>
                                         <li class="nav-item py-2">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#panelUbicaciones" role="tab" aria-controls="contact" aria-selected="false">Ubicación</a>
+                                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#panelUbicaciones" role="tab" aria-controls="ubicaciones-tab" aria-selected="false">Ubicación</a>
                                         </li>
                                         <li class="nav-item py-2">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#panelRandom" role="tab" aria-controls="contact" aria-selected="false">Random</a>
+                                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#panelRandom" role="tab" aria-controls="random-tab" aria-selected="false">Random</a>
+                                        </li>
+                                        <li class="nav-item py-2">
+                                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#panelTipo" role="tab" aria-controls="tipo-tab" aria-selected="false">Tipo</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content" id="myTabContent">
@@ -143,116 +146,34 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="panelRandom" role="tabpanel" aria-labelledby="ubicaciones-tab">
+                                        <div class="tab-pane fade" id="panelRandom" role="tabpanel" aria-labelledby="random-tab">
                                             <div class="row justify-content-center">
                                                 <div class="col-10 py-3">
                                                     <label for="por_zona" class="form-label">random.</label>
                                                     
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="random">
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">Enviar conteo radom</label>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="random">
+                                                        <label class="form-check-label" for="flexSwitchCheckChecked">Enviar conteo radom</label>
+                                                    </div>
                                                 </div>
-                                                    {{-- <div class="">
-                                                        <label>
-                                                            <input type="checkbox" class="js-switch" name="random" checked /> Checked
-                                                        </label>
-                                                    </div> --}}
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="panelTipo" role="tabpanel" aria-labelledby="tipo-tab">
+                                            <div class="row justify-content-center">
+                                                <div class="col-10 py-3">
+                                                    <label for="por_zona" class="form-label">Ubicaciones.</label>
+                                                    <select class="form-select multiple-select-field" id="por_tipo" name="tipo[]" data-placeholder="Seleccionar tipo" style="width: 100%" multiple>
+                                                        
+                                                        <option value="AA">AA</option>
+                                                        <option value="BB">BB</option>
+                                                        <option value="cc">CC</option>
+                                                        <option value="null">Vasio</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
   
-                                    {{-- <ul class="nav nav-tabs bar_tabs d-flex justify-content-around" id="myTab" role="tablist">
-                                      <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-                                      </li>
-                                      <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                                      </li>
-                                      <li class="nav-item">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                                      </li>
-                                    </ul>
-                                    <div class="tab-content" id="myTabContent">
-                                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
-                                            synth. Cosby sweater eu banh mi, qui irure terr.
-                                      </div>
-                                      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                                            booth letterpress, commodo enim craft beer mlkshk aliquip
-                                      </div>
-                                      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                        xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                                            booth letterpress, commodo enim craft beer mlkshk 
-                                      </div>
-                                    </div> --}}
-                                    {{-- <div class="card-box" style="width:100%">
-                                        <div class="row">
-                                            <div class="col-12 col-md-4 py-4 pl-3">
-                                                <label for="heard">Usuario conteo 1 <b style="color: red;"> *</b></label>
-                                                <select id="heard" class="form-control" name="user1" required>
-                                                    <option value=""> </option>
-                                                    @foreach($usuarios as $user1)
-                                                        <option value="{{$user1['id']}}">{{$user1['name']}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col-12 col-md-4 py-4 pl-3">
-                                                <label for="heard">Usuario conteo 2 <b style="color: red;"> *</b></label>
-                                                <select id="heard" class="form-control" name="user2" required>
-                                                    <option value=""> </option>
-                                                    @foreach($usuarios as $user2)
-                                                        <option value="{{$user2['id']}}">{{$user2['name']}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col-12 col-md-4 py-4 pl-3">
-                                                <label for="heard">Usuario conteo 3 <b style="color: red;"> *</b></label>
-                                                <select id="heard" class="form-control" name="user3" required>
-                                                    <option value=""> </option>
-                                                    @foreach($usuarios as $user3)
-                                                        <option value="{{$user3['id']}}">{{$user3['name']}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <table id="tbl" class="table table-striped table-bordered bulk_action" style="width:100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>
-                                                            <th><input type="checkbox" id="check-all" onclick="check_all()" ></th>
-                                                            </th>
-                                                            <th>Ubicación</th>
-                                                            <th>Codigo</th>
-                                                            <th>Descripción</th>
-                                                            <th>Lote</th>
-                                                            <th>Fecha de vencimiento</th>
-                                                        </tr>
-                                                    </thead>
-                            
-                            
-                                                    <tbody id="tabla">
-                                                        @foreach($data as $datos)
-                                                            <tr id="{{$datos['id']}}">
-                                                                <td>
-                                                                <th><input type="checkbox" id="check-{{$datos['id']}}" value="{{$datos['id']}}" name="lista[]" ></th>
-                                                                </td>
-                                                                <td>{{$datos['Location']}}</td>
-                                                                <td>{{$datos['ItemCode']}}</td>
-                                                                <td>{{$datos['Description']}}</td>
-                                                                <td>{{$datos['Lote']}}</td>
-                                                                <td>{{$datos['DateExpiration']}}</td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>

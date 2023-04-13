@@ -73,7 +73,7 @@ class AsignController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        
+        // dd($input);
         $fecha_hora = new DateTime("now", new DateTimeZone('America/Bogota'));
         
         DB::beginTransaction();
@@ -242,6 +242,41 @@ class AsignController extends Controller
                     $cop = CopiaWMS::where('id', $numero)->update([
                         'State' => 1,
                     ]);
+                }
+            }
+            
+            if (isset($input["tipo"])) {
+                
+                foreach($input['tipo'] as $key => $value){
+
+                    if ($value == "null") {
+                        $value = '';
+                    }
+                    // dd($value);
+
+                    $result = CopiaWMS::all()->where('Type', $value)->where('DateCopy', $fecha_hora->format("Y-m-d"))->where('State', 0);
+                    $result = json_decode( json_encode($result),true);
+                    // dd($result);
+                    foreach ($result as $key => $values) {
+                        DetalleConteos1::create([
+                            "Conteo_id" => $conteo['id'],
+                            "Copia_id" => $values['id'],
+                            "State" => 0,
+                        ]);
+                        DetalleConteos2::create([
+                            "Conteo_id" => $conteo['id'],
+                            "Copia_id" => $values['id'],
+                            "State" => 0,
+                        ]);
+                        DetalleConteos3::create([
+                            "Conteo_id" => $conteo['id'],
+                            "Copia_id" => $values['id'],
+                            "State" => 1,
+                        ]);
+                        $cop = CopiaWMS::where('id', $values['id'])->update([
+                            'State' => 1,
+                        ]);
+                    }
                 }
             }
         DB::commit();

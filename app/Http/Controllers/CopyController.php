@@ -36,6 +36,7 @@ class CopyController extends Controller
 
         $TipoConteo = ModelosRecuento::all();
         $TipoConteo = json_decode( json_encode( $TipoConteo),true);
+        // dd($TableCopy);
         
         return view('pages.administrador.stractWMS.GenCopy', compact('TableCopy', 'usuarios', 'TipoConteo'));
     }
@@ -54,7 +55,7 @@ class CopyController extends Controller
         
         $exist = CopiaWMS::all()->where('DateCopy', $fecha_hora->format('Y-m-d'));
         $exist = json_decode( json_encode($exist),true);
-
+        // dd($tableView);
         if($exist == []) {
             foreach($tableView as $tabla) {
                 // $insert = CopiaWMS::create([
@@ -75,6 +76,7 @@ class CopyController extends Controller
                 }else {
                     $ubi = $tabla['Nombre_Pasillo']."-".$tabla['UDC'];
                 }
+                
                 DB::table('CopiaWMS')->insert([
                     'ItemCode' => $tabla['Articulo'],
                     'Description'=> $tabla['Descripcion'],
@@ -90,6 +92,7 @@ class CopyController extends Controller
                     'DateCopy' => $fecha_hora->format('Y-m-d'),
                     'HourCopy' => $fecha_hora->format('H:i:s'),
                     'State' => 0,
+                    "Type" => $tabla['Tipo_Articulo'],
                 ]);
             }
             Alert::success('Copia', 'Copiado Exitosamente.');

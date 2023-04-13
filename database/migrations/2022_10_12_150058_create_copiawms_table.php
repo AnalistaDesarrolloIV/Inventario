@@ -29,6 +29,7 @@ return new class extends Migration
             $table->Date('DateCopy')->nullable();
             $table->time('HourCopy', $precision = 0)->nullable();
             $table->boolean('State');
+            $table->String('Type', 10);
             $table->timestamps();
         });
     }

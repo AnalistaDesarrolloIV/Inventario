@@ -35,6 +35,7 @@
                                                 <th>Fecha Copia</th>
                                                 <th>Hora Copia</th>
                                                 <th>Estado</th>
+                                                <th>Tipo Articulo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -55,6 +56,15 @@
                                                             <span class="badge rounded-pill text-bg-secondary">Copiado</span>
                                                         @else
                                                             <span class="badge rounded-pill text-bg-dark">Asignado</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if($val['Type'] == "AA")
+                                                            <span class="badge rounded-pill text-bg-success">{{$val['Type']}}</span>
+                                                        @elseif($val['Type'] == "BB")
+                                                            <span class="badge rounded-pill text-bg-warning">{{$val['Type']}}</span>
+                                                        @elseif($val['Type'] == "CC")
+                                                            <span class="badge rounded-pill text-bg-danger">{{$val['Type']}}</span>
                                                         @endif
                                                     </td>
                                                 </tr>

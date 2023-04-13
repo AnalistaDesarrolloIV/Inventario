@@ -26,6 +26,7 @@ class CopiaWMS extends Model
         'New',
         'DateCopy',
         'State',
+        'Type',
     ];
     
     public $timestamps = true;
