@@ -10,8 +10,7 @@
                 <div class=" col-sm-12 ">
                     <div class="x_panel">
                         <div class="x_title">
-                            {{-- <a href="{{route('copia.create')}}" class="btn btn-outline-dark">Consultar inventario</a> --}}
-                            <h2>Cabecera<small>Asignación</small></h2>
+                            <h2>Cabecera<small>Cambiar producto</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up text-dark"></i></a>
                                 </li>
@@ -211,6 +210,7 @@
                 if (opcion == articulo['Descripcion']) {
                     $("#ItemCode").val(articulo['ART_ARTICOLO']);
                     $("#barcode").val(articulo['CODIGO_BARRAS']);
+                    $("#ItemName").val(articulo['Descripcion']);
                     $("#ItemCode").prop('readonly', true);
                 }
             }

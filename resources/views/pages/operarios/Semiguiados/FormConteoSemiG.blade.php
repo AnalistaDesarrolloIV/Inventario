@@ -11,7 +11,7 @@
                 <div class="x_title">
                     <h2>
                         <a href="{{url()->previous()}}" class="btn btn-outline-dark btn-sm" type="button">Volver</a>
-                        Formulario de conteo semiguiados
+                        Formulario de conteo semiguiados {{$id}}
                     </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up text-dark"></i></a>
@@ -135,7 +135,7 @@
                                         <button type="submit" class="btn btn-success finali">Finalizar</button>
                                     </div>
                                     <div class="col-md-6 col-sm-6 offset-md-3">
-                                        <button type="button" id="agre" onclick="saveAgre()" class="btn btn-success">finalizar y agregar nuevo</button>
+                                        <button type="button" id="agre" onclick="saveAgre({{$artc['d_id']}})" class="btn btn-success">finalizar y agregar nuevo</button>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>
@@ -207,10 +207,12 @@
             }
         }
       
-        function saveAgre() {
+        function saveAgre(id_det) {
+            // console.log(id_det);
             $("#metodo").html(``);
-            let id = <?php echo $id?>;
-            let url = "{{route('countAgre', "${id}")}}";
+            let id = id_det;
+            let url = "/countAgre/"+id;
+            // console.log(url);
             $("#demo-form2").attr('action', url)
             $("#demo-form2").submit();
 

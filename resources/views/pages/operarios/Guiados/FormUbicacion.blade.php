@@ -13,7 +13,7 @@
                         @if($NR !== 0)
                             <a class="btn btn-sm btn-outline-dark" href="{{url('/')}}/lista/{{$id}}">Ver lista</a>
                         @endif
-                        Guiado
+                        Guiado {{$id}}
                     </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up text-dark"></i></a>

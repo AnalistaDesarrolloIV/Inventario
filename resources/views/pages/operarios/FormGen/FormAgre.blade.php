@@ -10,8 +10,7 @@
                 <div class=" col-sm-12 ">
                     <div class="x_panel">
                         <div class="x_title">
-                            {{-- <a href="{{route('copia.create')}}" class="btn btn-outline-dark">Consultar inventario</a> --}}
-                            <h2>Cabecera<small>Asignación</small></h2>
+                            <h2>Cabecera<small>Agregar Producto a pocisión {{$id}}</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up text-dark"></i></a>
                                 </li>
@@ -62,15 +61,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="item form-group d-none" id="name1">
-                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="location">Nombre del articulo <span class="required">*</span>
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="Description">Nombre del articulo <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input type="text" id="ItemName" required="required" class="form-control " value="" name="Description">
+                                                        <input type="text" id="Description" required="required" class="form-control " value="" name="Description">
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="item form-group" id="name2">
-                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="location">Nombre del articulo  <span class="required">*</span>
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="itemname">Nombre del articulo  <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <select class="select2 form-control" id="itemname"  name="ItemName" id="user" onchange="producto2()" style="width: 100%;">
@@ -194,9 +193,9 @@
                     $("#name2").addClass('d-none');
                     $("#name1").removeClass('d-none');
                     $("#ItemCode").val(articulo['ART_ARTICOLO']);
-                    $("#ItemName").val(articulo['Descripcion']);
+                    $("#Description").val(articulo['Descripcion']);
                     $("#ItemCode").prop('readonly', true);
-                    $("#ItemName").prop('readonly', true);
+                    $("#Description").prop('readonly', true);
                 }
             }
         }
@@ -210,6 +209,8 @@
                 if (opcion == articulo['Descripcion']) {
                     $("#ItemCode").val(articulo['ART_ARTICOLO']);
                     $("#barcode").val(articulo['CODIGO_BARRAS']);
+                    $("#barcode").val(articulo['CODIGO_BARRAS']);
+                    $("#Description").val(articulo['Descripcion']);
                     $("#ItemCode").prop('readonly', true);
                 }
             }

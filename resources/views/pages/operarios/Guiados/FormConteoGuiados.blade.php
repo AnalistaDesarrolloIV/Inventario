@@ -138,7 +138,7 @@
                                         <button type="submit" class="btn btn-success finali">Finalizar</button>
                                     </div>
                                     <div class="col-md-6 col-sm-6 offset-md-3">
-                                        <button type="button" id="agre" onclick="saveAgre()" class="btn btn-success">finalizar y agregar nuevo</button>
+                                        <button type="button" id="agre" onclick="saveAgre({{$artc['d_id']}})" class="btn btn-success">finalizar y agregar nuevo</button>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>
@@ -227,10 +227,10 @@
 
         }
 
-        function saveAgre() {
+        function saveAgre(id_det) {
             $("#metodo").html(``);
-            let id = <?php echo $id?>;
-            let url = "{{route('countAgre', "${id}")}}";
+            let id = id_det;
+            let url = "/countAgre/"+id;
             $("#demo-form2").attr('action', url)
             $("#demo-form2").submit();
 

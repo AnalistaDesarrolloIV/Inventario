@@ -1003,7 +1003,6 @@ class ContController extends Controller
                     $ubicacion = $val['Location'];
                 }
 
-
                 return view('pages.operarios.Semiguiados.FormConteoSemiG', compact('id', 'ubicacion', 'response', 'BarCodes'));
             }
         }elseif ($_SESSION['NCONTEO'] == 'c2'){
@@ -1632,6 +1631,7 @@ class ContController extends Controller
         }
 
         DB::commit();
+        // dd($id);
 
         Alert::success('Conteo', 'detalle contado exitosamente.');
         return redirect()->route('formnew', $id);
@@ -1657,6 +1657,7 @@ class ContController extends Controller
             FROM SYSTOREDB.dbo.DAT_ARTICOLI AS D INNER JOIN SYSTOREDB.dbo.DAT_ARTICOLI_ALTCODICI AS F ON F.ALT_ARTICOLO = D.ART_ARTICOLO');
             
             $productos = json_decode( json_encode($productos),true);
+            // dd($id);
 
             return view('pages.operarios.FormGen.FormAgre', compact('id', 'detalle', 'productos'));
 
@@ -1708,7 +1709,7 @@ class ContController extends Controller
     public function StoreAgre(Request $request, $id)
     {
         $input = $request->all();
-        
+        // dd($id);
         $desc = '';
         if (isset($input['Description'])) {
             $desc = $input['Description'];
@@ -1722,11 +1723,14 @@ class ContController extends Controller
 
             DB::beginTransaction();
                 $det = DetalleConteos1::find($id);
-
+                
                 $det->update([
                     'Comments' => "Se agrego un producto en esta posicon con el codigo: ".$input['ItemCode'],
+                    'State' => 1
                 ]);
                 $det = json_decode( json_encode($det),true);
+
+                // dd($det);
 
                 $detail = $det['Conteo_id'];
 

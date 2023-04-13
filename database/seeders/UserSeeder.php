@@ -17,11 +17,11 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Ivanagro',
-            'email' => 'registro@ivanagro.com',
+            'name' => 'Andres',
+            'email' => 'director.ti@ivanagro.com',
             'state' => '1',
             'rol_id' => '1',
-            'password' => bcrypt('C0rr30.2023'),
+            'password' => bcrypt('L4gw4g0n.2023'),
         ]);
         
         // User::create([
