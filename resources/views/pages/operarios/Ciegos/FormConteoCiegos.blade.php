@@ -200,7 +200,7 @@
         function saveAgre(id_det) {
             $("#metodo").html(``);
             let id = id_det;
-            let url = "/countAgre/"+id;
+            let url = "{{url('')}}/countAgre/"+id;
             $("#demo-form2").attr('action', url)
             $("#demo-form2").submit();
 
