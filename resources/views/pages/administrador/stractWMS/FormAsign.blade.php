@@ -166,7 +166,7 @@
                                                         
                                                         <option value="AA">AA</option>
                                                         <option value="BB">BB</option>
-                                                        <option value="cc">CC</option>
+                                                        <option value="CC">CC</option>
                                                         <option value="null">Vasio</option>
                                                     </select>
                                                 </div>
