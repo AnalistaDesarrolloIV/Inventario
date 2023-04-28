@@ -23,5 +23,9 @@ class RolesSeeder extends Seeder
         Roles::create([
             'Rol' => 'Empleado',
         ]);
+
+        Roles::create([
+            'Rol' => 'Repartidor',
+        ]);
     }
 }

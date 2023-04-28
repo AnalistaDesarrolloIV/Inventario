@@ -23,6 +23,24 @@
                         @enderror
                     </div>
                 </div>
+                
+                <div class="row mb-3">
+                    <label for="nameSAP" class="col-md-4 col-form-label text-md-end">Nombre SAP <b style="color: red;">*</b> </label>
+
+                    <div class="col-md-6">
+                        <select class="form-select @error('nameSAP') is-invalid @enderror" name="nameSAP" id="nameSAP">
+                            <option value="" selected></option>
+                            @foreach ($userSap as $usr)
+                                <option value="{{$usr['CODIGO']}}">{{$usr['NOMBRE']}}</option>
+                            @endforeach
+                        </select>
+                        @error('nameSAP')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
 
                 <div class="row mb-3">
                     <label for="email" class="col-md-4 col-form-label text-md-end">Correo <b style="color: red;">*</b> </label>
@@ -75,7 +93,7 @@
                         <select class="form-select @error('Rol_id') is-invalid @enderror" name="Rol_id" id="Rol">
                             <option value="" selected></option>
                             @foreach ($roles as $rol)
-                                <option value="{{$rol['Id']}}">{{$rol['Rol']}}</option>
+                                <option value="{{$rol->Id}}">{{$rol->Rol}}</option>
                             @endforeach
                         </select>
                         @error('Rol_id')

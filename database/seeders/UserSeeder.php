@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Andres',
+            'nameSAP' => 'Andres',
             'email' => 'director.ti@ivanagro.com',
             'state' => '1',
             'rol_id' => '1',

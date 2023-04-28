@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'nameSAP',
         'password',
         'Rol_id',
         'State',
@@ -45,7 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function rol(){
-        return $this->hasOne('App\Models\Roles', 'Id', 'Rol:id');
+    public function Rol(){
+        return $this->hasOne('App\Models\Roles', 'Id', 'Rol_id');
     }
 }

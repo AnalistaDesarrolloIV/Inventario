@@ -27,23 +27,29 @@
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Correo</th>
                                             <th scope="col">Rol</th>
+                                            <th scope="col">Estado</th>
                                             <th scope="col">Acciones</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($usuarios as $user)
                                             <tr>
-                                                <th scope="row">{{$user['id']}}</th>
-                                                <td>{{$user['name']}}</td>
-                                                <td>{{$user['email']}}</td>
-                                                <td>@foreach($roles as $rol)
-                                                        @if($rol['Id'] == $user['Rol_id'])    
-                                                            {{$rol['Rol']}}
-                                                        @endif
-                                                    @endforeach
+                                                <th scope="row">{{$user->id}}</th>
+                                                <td>{{$user->name}}</td>
+                                                <td>{{$user->email}}</td>
+                                                <td>{{$user->Rol->Rol}}
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="{{route('user.edit', $user['id'])}}" class=""><i class="fa fa-edit text-danger"></i></a>
+                                                    @if ($user->State = 0)
+                                                        <span class="badge text-bg-success">Activo</span>
+                                                    @else
+                                                        <span class="badge text-bg-danger">Inactivo</span>
+                                                    @endif
+                                                </td>
+                                                <td class="d-flex justify-content-around">
+                                                    <a href="{{route('user.edit', $user['id'])}}" class=""><i class="fa fa-edit text-dark" style="font-size: x-large; font-weight"></i></a>
+                                                    <a href="" class=""><i class="fa fa-trash-o text-danger" aria-hidden="true" style="font-size: x-large; font-weight"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -55,48 +61,6 @@
                 </div>
             </div>
         </div>
-
-
-
-        {{-- <div class="col">
-            <a class="btn btn-outline-dark" href="{{route('user.create')}}">Crear usuario</a>
-        </div>
-        <div class="col-md-10">
-
-                <div class="x_content">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card-box table-responsive">
-                                <table id="tbl" class="table table-striped table-hover table-bordered nowrap" cellspacing="0" width="100%">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Correo</th>
-                                            <th scope="col">Rol</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($usuarios as $user)
-                                            <tr>
-                                                <th scope="row">{{$user['id']}}</th>
-                                                <td>{{$user['name']}}</td>
-                                                <td>{{$user['email']}}</td>
-                                                <td>@foreach($roles as $rol)
-                                                        @if($rol['Id'] == $user['Rol_id'])    
-                                                            {{$rol['Rol']}}
-                                                        @endif
-                                                    @endforeach
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div> --}}
     </div>
 </div>
 @endsection

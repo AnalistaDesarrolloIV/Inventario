@@ -89,7 +89,7 @@
                         @if ( Auth::user()->Rol_id == 1)
                             
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align">Zonas <span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Rol <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9  ">
                                     <select class="form-control" name="rol">
                                         <option>Seleccionar</option>

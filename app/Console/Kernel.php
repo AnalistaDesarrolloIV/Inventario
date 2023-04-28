@@ -15,7 +15,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // $schedule->command('inspire')->hourly();        
+        $schedule->command('Copia_pedidos')->everyFifteenMinutes()
+        ->timezone('America/Bogota'); 
+        // everyFifteenMinutes
+        // everyMinute
     }
 
     /**
@@ -27,6 +31,7 @@ class Kernel extends ConsoleKernel
     {
         $this->load(__DIR__.'/Commands');
 
-        require base_path('routes/console.php');
+        require base_path('routes/console.php');        
+        Commands\copia_pedidos::class;
     }
 }

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -26,11 +27,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuarios = DB::select('select * from Users');
-        $usuarios = json_decode( json_encode( $usuarios),true);
-        $roles = DB::select('select * from Roles');
-        $roles = json_decode( json_encode( $roles),true);
-        return view('pages.administrador.Usuarios.Usuarios', compact('usuarios', 'roles'));
+        // $usuarios = DB::select('select * from Users');
+        $usuarios = User::all();
+        // $usuarios = json_decode( json_encode( $usuarios),true);
+        // $roles = DB::select('select * from Roles');
+        // $roles = json_decode( json_encode( $roles),true);
+        return view('pages.administrador.Usuarios.Usuarios', compact('usuarios'));
     }
 
     /**
@@ -41,10 +43,17 @@ class UserController extends Controller
     public function create()
     {
         
-        $roles = DB::select('select * from Roles');
-        $roles = json_decode( json_encode( $roles),true);
+        $response = Http::retry(30, 5, throw: false)->post('https://10.170.20.95:50000/b1s/v1/Login',[
+            'CompanyDB' => 'ZPRUREBANO',
+            'UserName' => 'Desarrollos',
+            'Password' => 'Asdf1234$',
+        ])['SessionId'];
 
-        return view('pages.administrador.Usuarios.Crearusuario', compact('roles'));
+        $roles = DB::select('select * from Roles');
+        // $roles = json_decode( json_encode( $roles),true);
+        $userSap = Http::retry(30, 5, throw: false)->withToken($response)->get("https://10.170.20.95:50000/b1s/v1/sml.svc/OPERARIOS")['value'];
+        // dd($userSap);
+        return view('pages.administrador.Usuarios.Crearusuario', compact('roles', 'userSap'));
     }
 
     /**
@@ -60,6 +69,7 @@ class UserController extends Controller
         $create = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'nameSAP' => $input['nameSAP'],
             'Rol_id' => $input['Rol_id'],
             'State' => 1,
             'password' => Hash::make($input['password']),

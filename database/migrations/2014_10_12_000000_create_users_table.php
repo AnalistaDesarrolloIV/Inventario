@@ -17,6 +17,7 @@ return new class extends Migration
             $table->BigIncrements('id');
             $table->string('name',100)->unique();
             $table->string('email')->unique();
+            $table->string('nameSAP')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('Rol_id');

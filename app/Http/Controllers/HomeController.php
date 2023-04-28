@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Conteos;
 use App\Models\CopiaWMS;
 use App\Models\ModelosRecuento;
+use App\Models\PedidoSap;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -29,6 +31,22 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
+        // $response = Http::retry(30, 5, throw: false)->post('https://10.170.20.95:50000/b1s/v1/Login',[
+        //     'CompanyDB' => 'ZPRUREBANO',
+        //     'UserName' => 'Desarrollos',
+        //     'Password' => 'Asdf1234$',
+        // ])['SessionId'];
+        
+        // $pedido = PedidoSap::all()->where('ESTADO_ID', 3);
+        // foreach ($pedido as $key => $value) {
+        //     $gard = Http::retry(30, 5, throw: false)->withToken($response)->patch("https://10.170.20.95:50000/b1s/v1/DeliveryNotes(".$value->DOCUMENTO.")", [
+        //         "U_IV_FECHREC"=>$value->updated_at,
+        //         "U_IV_INIREC" => $value->HORA_INICIO_REC,
+        //         "U_IN_FINREC"=> $value->HORA_FIN_REC,
+        //         "U_IV_PATINADOR"=> $value->RECOLECTOR
+        //     ]);
+        // }
         $fecha_hora = new DateTime("now", new DateTimeZone('America/Bogota'));
 
         $TipoConteo = ModelosRecuento::all();

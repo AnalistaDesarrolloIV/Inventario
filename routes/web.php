@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActualizarPedidosController;
 use App\Http\Controllers\AsignController;
 use App\Http\Controllers\ConteosController;
 use App\Http\Controllers\CopyController;
@@ -9,8 +10,14 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContController;
+use App\Http\Controllers\EmpaqueController;
+use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\InformesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecoleccionController;
+use App\Models\DetallesPedido;
+use App\Models\PedidoSap;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +31,8 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
+    
+   
     return redirect()->route('home');
 })->middleware('auth');
 
@@ -69,3 +78,21 @@ Route::post('/export', [InformesController::class, 'export'])->name('export');
 Route::get('/edit/{id}', [ProfileController::class, 'edit'])->name('edit');
 Route::post('/storeEdit/{id}', [ProfileController::class, 'update'])->name('storeEdit');
 Route::post('/updatePass/{id}', [ProfileController::class, 'updatePass'])->name('updatePass');
+
+
+Route::get('/Actualizar/index', [ActualizarPedidosController::class, 'index'])->name('act.index');
+Route::get('/Actualizar/store', [ActualizarPedidosController::class, 'store'])->name('act.store');
+
+
+Route::get('/Recoleccion/index', [RecoleccionController::class, 'index'])->name('rec.index');
+Route::post('/Recoleccion/contar', [RecoleccionController::class, 'contar'])->name('rec.contar');
+Route::post('/Recoleccion/guardarlinea', [RecoleccionController::class, 'guardarLineas'])->name('rec.guardarL');
+
+
+
+Route::get('/Empaque/index', [EmpaqueController::class, 'index'])->name('emp.index');
+Route::post('/Empaque/contar', [EmpaqueController::class, 'contar'])->name('emp.contar');
+Route::post('/Empaque/guardarlinea', [EmpaqueController::class, 'guardarLineas'])->name('emp.guardarL');
+
+Route::get('/Factura/index', [FacturaController::class, 'index'])->name('fac.index');
+Route::post('/Factura/facturar', [FacturaController::class, 'facturar'])->name('fac.facturar');

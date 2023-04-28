@@ -33,6 +33,8 @@
     <link href="{{url('/')}}/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="{{url('/')}}/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Custom Theme Style -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
@@ -82,12 +84,33 @@
                 @if(auth()->user()->Rol_id == 1)
                   <h3>Administrador</h3>
                   <ul class="nav side-menu">
-                    <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Inicio</span></a>
-                    <li><a href="{{route('user.index')}}"><i class="fa fa-male"></i> Usuarios</span></a>
-                    <li><a href="{{route('asignar.index')}}"><i class="fa fa-pencil"></i> Asignación</span></a>
+
+                    <li><a href="{{route('home')}}"><i class="fa-solid fa-house"></i> Inicio</span></a>
+                    <li><a href="{{route('user.index')}}"><i class="fa-solid fa-user"></i> Usuarios</span></a>
+                    <li><a><i class="fa-solid fa-truck-ramp-box"></i> Inventario <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="{{route('asignar.index')}}"><i class="fa-brands fa-stack-exchange"></i> Asignación</span></a></li>
+                        <li><a href="{{route('informes')}}"><i class="fa-solid fa-chart-column"></i> Informes</span></a></li>
+                        <li><a href="{{route('conteos.index')}}"><i class="fa-solid fa-binoculars"></i> Conteos</span></a></li>
+                      </ul>
+                    </li>
+                    <li><a><i class="fa-solid fa-clipboard-list"></i> PyP <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="{{route('act.index')}}"><i class="fa-solid fa-rotate-right"></i> Borrar y actualizar </span></a></li>
+                        <li><a href="{{route('rec.index')}}"><i class="fa-solid fa-dolly"></i> Recolección </span></a></li>
+                        <li><a href="{{route('emp.index')}}"><i class="fa-solid fa-cubes"></i> Empaque </span></a></li>
+                        <li><a href="{{route('fac.index')}}"><i class="fa-solid fa-receipt"></i> Factura </span></a></li>
+                      </ul>
+                    </li>
+                    <li><a><i class="fa-solid fa-truck-arrow-right"></i> Despacho <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="{{route('act.index')}}"><i class="fa-solid fa-truck-fast"></i> Salida </span></a></li>
+                      </ul>
+                    </li>
+                    <!-- <li><a href="{{route('asignar.index')}}"><i class="fa fa-pencil"></i> Asignación</span></a>
                       <li><a href="{{route('informes')}}"><i class="fa fa-line-chart"></i> Informes</span></a>
                     <li><a href="{{route('conteos.index')}}"><i class="fa fa-binoculars"></i> Conteos</span></a>
-                    </li>
+                    </li> -->
                   </ul>
                 @else
                   <h3>General</h3>
@@ -194,6 +217,9 @@
     <script src="{{url('/')}}/vendors/jszip/dist/jszip.min.js"></script>
     <script src="{{url('/')}}/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="{{url('/')}}/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
     <script>
       
