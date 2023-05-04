@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:100', 'unique:users'],
             'nameSAP' => ['required', 'string', 'max:100'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['string', 'email', 'max:255'],
             'password' => ['required', 'confirmed', 
                 Password::min(5)
                 ->letters()
